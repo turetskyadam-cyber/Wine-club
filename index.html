@@ -29,11 +29,6 @@
   <!-- =================== NAV =================== -->
   <nav id="site-nav" aria-label="Site navigation">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo" aria-label="The Wine Room — home">
-        <img src="assets/logo-wine-room.png" alt="The Wine Room" class="nav-logo__img"
-          onerror="this.style.display='none';this.nextElementSibling.style.display='block';">
-        <span class="nav-logo__fallback" style="display:none;">The Wine Room</span>
-      </a>
       <ul class="nav-links" role="list">
         <li><a href="#benefits" data-section="benefits">Perks</a></li>
         <li><a href="#wine-card" data-section="wine-card">Wine Card</a></li>
@@ -106,6 +101,8 @@
 
         <!-- Badge -->
         <div class="hero-badge-wrap">
+          <span class="badge-ring badge-ring--1" aria-hidden="true"></span>
+          <span class="badge-ring badge-ring--2" aria-hidden="true"></span>
           <div class="badge-spin-wrap">
             <img src="assets/world-record-badge.png" alt="World Record Holder — The Wine Room" class="badge-hero"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
@@ -128,23 +125,30 @@
         <!-- Achievement stats below badge -->
         <div class="hero-record-stats">
           <div class="hero-stat">
-            <span class="hero-stat__num">180+</span>
+            <span class="hero-stat__num"><span data-count="180">0</span>+</span>
             <span class="hero-stat__desc">Wines by the Glass</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <span class="hero-stat__num">26</span>
+            <span class="hero-stat__num" data-count="26">0</span>
             <span class="hero-stat__desc">Self-Pour Machines</span>
           </div>
           <div class="hero-stat-divider"></div>
           <div class="hero-stat">
-            <span class="hero-stat__num">7</span>
+            <span class="hero-stat__num" data-count="7">0</span>
             <span class="hero-stat__desc">Days a Week</span>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Logo band — large centred logo below hero -->
+  <div class="hero-logo-band" data-animate>
+    <img src="assets/logo-wine-room.png" alt="The Wine Room Kitchen &amp; Bar" class="hero-logo-band__img"
+      onerror="this.style.display:'none';this.nextElementSibling.style.display='block';">
+    <span class="hero-logo-band__fallback" style="display:none;">The Wine Room</span>
+  </div>
 
   <!-- Diagonal separator: white → burgundy -->
   <div class="sep sep--white-to-burg" aria-hidden="true"></div>

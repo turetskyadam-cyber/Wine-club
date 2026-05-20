@@ -338,25 +338,26 @@ ul { list-style: none; }
   gap: var(--sp-8);
 }
 
-.nav-logo {
+/* Logo band — large centred logo below hero */
+.hero-logo-band {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-shrink: 0;
-  text-decoration: none;
+  padding: var(--sp-10) var(--sp-6);
+  background: var(--cream);
 }
-.nav-logo__img {
-  height: 36px;
-  width: auto;
-  transition: opacity var(--dur-fast) var(--ease-out);
+.hero-logo-band__img {
+  width: clamp(200px, 32vw, 340px);
+  height: auto;
+  display: block;
 }
-.nav-logo__img:hover { opacity: 0.8; }
-.nav-logo__fallback {
+.hero-logo-band__fallback {
   font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.8rem);
   font-weight: 700;
-  font-size: 1.1rem;
-  letter-spacing: 0.08em;
-  color: var(--charcoal);
   font-style: italic;
+  color: var(--charcoal);
+  letter-spacing: 0.05em;
 }
 
 .nav-links {
@@ -737,6 +738,13 @@ ul { list-style: none; }
   position: relative;
   z-index: 2;
   margin: 0 0 var(--sp-3);
+  animation:
+    heroReveal var(--dur-slow) var(--ease-out) 300ms both,
+    goldPulse 4s ease-in-out 1.8s infinite;
+}
+@keyframes goldPulse {
+  0%, 100% { opacity: 0.88; letter-spacing: 0.18em; }
+  50%       { opacity: 1;    letter-spacing: 0.21em; }
 }
 
 /* Achievement stats row below badge */
@@ -752,6 +760,7 @@ ul { list-style: none; }
   border: 1px solid rgba(196,150,42,0.2);
   border-radius: var(--r-md);
   backdrop-filter: blur(8px);
+  animation: heroReveal var(--dur-slow) var(--ease-out) 700ms both;
 }
 .hero-stat {
   display: flex;
@@ -790,6 +799,7 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
+  animation: heroReveal var(--dur-slow) var(--ease-out) 500ms both;
 }
 .badge-spin-wrap {
   display: inline-block;
@@ -797,10 +807,25 @@ ul { list-style: none; }
 }
 .badge-spin-wrap:hover { animation-play-state: paused; }
 .badge-hero {
-  width: clamp(160px, 20vw, 220px);
+  width: clamp(200px, 26vw, 300px);
   display: block;
   filter: invert(1) drop-shadow(0 4px 32px rgba(0,0,0,0.45));
   cursor: pointer;
+}
+
+/* Pulsing rings around badge */
+.badge-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(196,150,42,0.45);
+  pointer-events: none;
+  animation: badgeRingPulse 3.2s ease-out infinite;
+}
+.badge-ring--1 { width: 320px; height: 320px; animation-delay: 0s; }
+.badge-ring--2 { width: 390px; height: 390px; animation-delay: 1.6s; }
+@keyframes badgeRingPulse {
+  0%   { transform: scale(0.80); opacity: 0.7; }
+  100% { transform: scale(1.08); opacity: 0; }
 }
 @keyframes badgeSpin {
   from { transform: rotate(0deg); }
@@ -2480,7 +2505,7 @@ input.error {
     right: var(--sp-4);
   }
   .badge-spin-wrap { animation: none; }
-  .badge-hero { width: clamp(160px, 50vw, 220px); }
+  .badge-hero { width: clamp(200px, 55vw, 280px); }
 
   .strip-inner { gap: var(--sp-6); }
   .strip-divider { display: none; }
