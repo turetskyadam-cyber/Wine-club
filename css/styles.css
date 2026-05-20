@@ -1159,32 +1159,39 @@ ul { list-style: none; }
   width: 100%;
 }
 .benefit-flip__inner {
-  display: grid;
+  position: relative;
   transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .benefit-flip.is-flipped .benefit-flip__inner {
   transform: rotateY(180deg);
 }
-.benefit-flip__front,
-.benefit-flip__back {
-  grid-area: 1 / 1;
+.benefit-flip__front {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 .benefit-flip__back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   transform: rotateY(180deg);
+}
+.benefit-flip__back .benefit-card-back {
+  height: 100%;
 }
 /* Tap hint */
 .card-flip-hint {
   display: block;
-  margin-top: var(--sp-4);
-  font-size: 0.65rem;
+  margin-top: var(--sp-3);
+  font-size: 0.62rem;
   font-family: var(--font-body);
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(196,150,42,0.55);
+  color: rgba(196,150,42,0.6);
+  padding-top: var(--sp-3);
+  border-top: 1px solid rgba(196,150,42,0.15);
 }
 /* Back face card */
 .benefit-card-back {
