@@ -360,6 +360,14 @@ ul { list-style: none; }
   letter-spacing: 0.05em;
 }
 
+/* Hero eyebrow logo — replaces the text eyebrow in hero-left */
+.hero-eyebrow-logo { margin-bottom: var(--sp-4); }
+.hero-eyebrow-logo__img {
+  width: clamp(110px, 16vw, 180px);
+  height: auto;
+  display: block;
+}
+
 .nav-links {
   display: flex;
   align-items: center;
@@ -450,7 +458,7 @@ ul { list-style: none; }
 .nav-overlay {
   position: fixed;
   inset: 0;
-  z-index: 99;
+  z-index: 101;
   background: rgba(15, 8, 16, 0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -827,6 +835,32 @@ ul { list-style: none; }
   0%   { transform: scale(0.80); opacity: 0.7; }
   100% { transform: scale(1.08); opacity: 0; }
 }
+
+/* Floating gold particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--sz);
+  height: var(--sz);
+  border-radius: 50%;
+  background: rgba(196,150,42,0.65);
+  animation: particleFloat var(--dur, 8s) var(--dly, 0s) ease-in-out infinite;
+}
+@keyframes particleFloat {
+  0%   { transform: translateY(0) scale(1);       opacity: 0; }
+  15%  { opacity: 0.85; }
+  85%  { opacity: 0.5; }
+  100% { transform: translateY(-70px) scale(0.3); opacity: 0; }
+}
+
 @keyframes badgeSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
