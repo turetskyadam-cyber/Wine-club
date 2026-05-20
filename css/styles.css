@@ -1596,6 +1596,13 @@ ul { list-style: none; }
   justify-content: space-between;
   align-items: flex-start;
 }
+.card-mockup__logo-img {
+  width: 90px;
+  height: auto;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
 .card-mockup__logo-text {
   display: flex;
   flex-direction: column;
