@@ -2541,7 +2541,7 @@ input.error {
   .hero-scroll-hint { align-items: center; }
   .hero-right {
     min-height: 420px;
-    order: 1; /* badge below text on mobile */
+    order: -1; /* badge above text on mobile */
   }
   .hero-badge-wrap {
     top: auto;
