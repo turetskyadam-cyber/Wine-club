@@ -1664,16 +1664,16 @@ ul { list-style: none; }
   width: 340px;
   max-width: 100%;
   height: 210px;
-  background: linear-gradient(135deg, #1A0A12 0%, var(--burgundy-dk) 45%, #6B1535 100%);
+  background: linear-gradient(135deg, #0A0A0A 0%, #1C1C1C 50%, #0D0D0D 100%);
   border-radius: 18px;
   padding: var(--sp-6) var(--sp-7);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   box-shadow:
-    0 24px 64px rgba(123,28,60,0.45),
-    0 0 0 1px rgba(196,150,42,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.08);
+    0 24px 64px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(196,150,42,0.35),
+    inset 0 1px 0 rgba(255,255,255,0.07);
   transform: perspective(900px) rotateY(-12deg) rotateX(4deg);
   transition:
     transform var(--dur-xslow) var(--ease-out),
@@ -1686,9 +1686,9 @@ ul { list-style: none; }
 .card-mockup:hover {
   transform: perspective(900px) rotateY(0deg) rotateX(0deg) scale(1.03);
   box-shadow:
-    0 32px 80px rgba(123,28,60,0.55),
-    0 0 0 1px rgba(196,150,42,0.45),
-    inset 0 1px 0 rgba(255,255,255,0.12);
+    0 32px 80px rgba(0,0,0,0.8),
+    0 0 0 1px rgba(196,150,42,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.1);
 }
 .card-mockup__shine {
   position: absolute;
