@@ -717,6 +717,24 @@ ul { list-style: none; }
   inset: 0;
   background: radial-gradient(ellipse 90% 70% at 50% 50%, rgba(196,150,42,0.15) 0%, transparent 65%);
   pointer-events: none;
+  z-index: 0;
+}
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: -60%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(196,150,42,0.07) 50deg,
+    transparent 100deg
+  );
+  animation: bgSweep 20s linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes bgSweep {
+  to { transform: rotate(360deg); }
 }
 
 /* Ghost "180+" text */
@@ -733,6 +751,11 @@ ul { list-style: none; }
   pointer-events: none;
   user-select: none;
   letter-spacing: -0.03em;
+  animation: ghostDrift 20s ease-in-out infinite alternate;
+}
+@keyframes ghostDrift {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-20px, -14px); }
 }
 
 /* World record label above badge */
@@ -807,7 +830,13 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: heroReveal var(--dur-slow) var(--ease-out) 500ms both;
+  animation:
+    heroReveal var(--dur-slow) var(--ease-out) 500ms both,
+    badgeFloat 7s ease-in-out 1.2s infinite;
+}
+@keyframes badgeFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
 }
 .badge-spin-wrap {
   display: inline-block;
@@ -851,10 +880,11 @@ ul { list-style: none; }
   width: var(--sz);
   height: var(--sz);
   border-radius: 50%;
+  will-change: transform, opacity;
   animation: particleFloat var(--dur, 8s) var(--dly, 0s) ease-in-out infinite;
 }
-.particle--gold  { background: rgba(196,150,42,0.9); box-shadow: 0 0 6px rgba(196,150,42,0.6); }
-.particle--white { background: rgba(255,255,255,0.75); box-shadow: 0 0 5px rgba(255,255,255,0.4); }
+.particle--gold  { background: rgba(196,150,42,1); box-shadow: 0 0 8px rgba(196,150,42,0.7); }
+.particle--white { background: rgba(255,255,255,0.9); box-shadow: 0 0 7px rgba(255,255,255,0.5); }
 @keyframes particleFloat {
   0%   { transform: translateY(0) scale(1);        opacity: 0; }
   12%  { opacity: 1; }
@@ -2532,15 +2562,15 @@ input.error {
   .hero-ctas .btn { justify-content: center; }
   .hero-scroll-hint { align-items: center; }
   .hero-right {
-    min-height: 280px;
-    order: -1; /* illustration above text on mobile */
+    min-height: 420px;
+    order: 1; /* badge below text on mobile */
   }
   .hero-badge-wrap {
-    top: var(--sp-4);
-    right: var(--sp-4);
+    top: auto;
+    right: auto;
   }
-  .badge-spin-wrap { animation: none; }
-  .badge-hero { width: clamp(200px, 55vw, 280px); }
+  .badge-spin-wrap { animation: badgeSpin 40s linear infinite; }
+  .badge-hero { width: clamp(180px, 50vw, 240px); }
 
   .strip-inner { gap: var(--sp-6); }
   .strip-divider { display: none; }
