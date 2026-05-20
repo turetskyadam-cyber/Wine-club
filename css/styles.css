@@ -1597,11 +1597,11 @@ ul { list-style: none; }
   align-items: flex-start;
 }
 .card-mockup__logo-img {
-  width: 90px;
+  width: 60px;
   height: auto;
   display: block;
   filter: brightness(0) invert(1);
-  opacity: 0.92;
+  opacity: 0.95;
 }
 .card-mockup__logo-text {
   display: flex;
