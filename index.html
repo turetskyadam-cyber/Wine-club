@@ -625,26 +625,42 @@
       </div>
       <div class="calc-wrap" data-animate>
         <div class="calc-left">
-          <p class="calc-question">How many bottles do you typically buy per month?</p>
-          <div class="calc-controls">
-            <button class="calc-btn calc-btn--minus" id="calcMinus" aria-label="Decrease bottles">−</button>
-            <span class="calc-display">
-              <span class="calc-value" id="calcBottles">2</span>
-              <span class="calc-unit">bottles</span>
-            </span>
-            <button class="calc-btn calc-btn--plus" id="calcPlus" aria-label="Increase bottles">+</button>
+
+          <div class="calc-perk-group">
+            <p class="calc-question">How many times do you load your Wine Card?</p>
+            <div class="calc-controls">
+              <button class="calc-btn calc-btn--minus" id="calcCardMinus" aria-label="Decrease wine card top-ups" disabled>−</button>
+              <span class="calc-display">
+                <span class="calc-value" id="calcCards">0</span>
+                <span class="calc-unit">top-ups</span>
+              </span>
+              <button class="calc-btn calc-btn--plus" id="calcCardPlus" aria-label="Increase wine card top-ups">+</button>
+            </div>
+            <p class="calc-note">Load any amount · We match it dollar-for-dollar · +$100 value each</p>
           </div>
-          <div class="calc-track" role="presentation">
-            <div class="calc-track__fill" id="calcTrackFill" style="width:16.67%"></div>
+
+          <div class="calc-perk-divider"></div>
+
+          <div class="calc-perk-group">
+            <p class="calc-question">How many extra bottles do you buy per month?</p>
+            <div class="calc-controls">
+              <button class="calc-btn calc-btn--minus" id="calcBottleMinus" aria-label="Decrease extra bottles" disabled>−</button>
+              <span class="calc-display">
+                <span class="calc-value" id="calcExtraBottles">0</span>
+                <span class="calc-unit">bottles</span>
+              </span>
+              <button class="calc-btn calc-btn--plus" id="calcBottlePlus" aria-label="Increase extra bottles">+</button>
+            </div>
+            <p class="calc-note">Beyond your free monthly bottle · 15% off $48 avg · +$7.20 per bottle</p>
           </div>
-          <p class="calc-note">Based on avg. retail price of $48/bottle</p>
+
         </div>
         <div class="calc-right">
           <div class="calc-card">
             <div class="calc-row calc-row--value">
               <div>
                 <div class="calc-label">Monthly value received</div>
-                <div class="calc-sublabel">1 bottle + card access + discounts</div>
+                <div class="calc-sublabel">1 free bottle + $100 card match included</div>
               </div>
               <div class="calc-amount calc-amount--value" id="calcValue">$72</div>
             </div>
