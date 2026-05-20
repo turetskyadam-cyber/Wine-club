@@ -187,7 +187,7 @@
   }
 
   /* ----------------------------------------------------------
-     9. VALUE CALCULATOR — two independent controls
+     9. VALUE CALCULATOR — wine card amount + bottle count
      ---------------------------------------------------------- */
   const calcCardMinus   = document.getElementById('calcCardMinus');
   const calcCardPlus    = document.getElementById('calcCardPlus');
@@ -200,23 +200,25 @@
   const calcAnnualEl    = document.getElementById('calcAnnual');
 
   const AVG_BOTTLE  = 48;
-  const WINE_MATCH  = 100;
   const DISCOUNT    = 0.15;
   const MEMBERSHIP  = 29;
-  const BASE_VALUE  = 148;
-  const MAX_CARDS   = 10;
-  const MAX_BOTTLES = 11;
+  const CARD_STEP   = 100;
+  const CARD_MIN    = 100;
+  const CARD_MAX    = 1000;
+  const BOTTLE_MIN  = 1;
+  const BOTTLE_MAX  = 12;
 
-  let wineCards    = 0;
-  let extraBottles = 0;
+  let wineCardAmount = CARD_MIN;
+  let bottles        = BOTTLE_MIN;
 
   function calcUpdate(animate) {
-    const totalValue = Math.round(BASE_VALUE + (wineCards * WINE_MATCH) + (extraBottles * AVG_BOTTLE * DISCOUNT));
-    const savings    = totalValue - MEMBERSHIP;
-    const annual     = totalValue * 12;
+    const bottleValue = AVG_BOTTLE + Math.max(0, bottles - 1) * AVG_BOTTLE * DISCOUNT;
+    const totalValue  = Math.round(bottleValue + wineCardAmount);
+    const savings     = totalValue - MEMBERSHIP;
+    const annual      = totalValue * 12;
 
-    if (calcCardsEl)  calcCardsEl.textContent  = wineCards;
-    if (calcExtraEl)  calcExtraEl.textContent  = extraBottles;
+    if (calcCardsEl) calcCardsEl.textContent = wineCardAmount;
+    if (calcExtraEl) calcExtraEl.textContent = bottles;
     calcValueEl.textContent   = '$' + totalValue;
     calcSavingsEl.textContent = '$' + savings;
     calcAnnualEl.textContent  = '$' + annual.toLocaleString();
@@ -230,17 +232,17 @@
       });
     }
 
-    if (calcCardMinus)   calcCardMinus.disabled   = wineCards    <= 0;
-    if (calcCardPlus)    calcCardPlus.disabled    = wineCards    >= MAX_CARDS;
-    if (calcBottleMinus) calcBottleMinus.disabled = extraBottles <= 0;
-    if (calcBottlePlus)  calcBottlePlus.disabled  = extraBottles >= MAX_BOTTLES;
+    if (calcCardMinus)   calcCardMinus.disabled   = wineCardAmount <= CARD_MIN;
+    if (calcCardPlus)    calcCardPlus.disabled    = wineCardAmount >= CARD_MAX;
+    if (calcBottleMinus) calcBottleMinus.disabled = bottles        <= BOTTLE_MIN;
+    if (calcBottlePlus)  calcBottlePlus.disabled  = bottles        >= BOTTLE_MAX;
   }
 
   if (calcCardMinus && calcCardPlus && calcCardsEl && calcBottleMinus && calcBottlePlus && calcExtraEl) {
-    calcCardMinus.addEventListener('click',   () => { if (wineCards    > 0)           { wineCards--;    calcUpdate(true); } });
-    calcCardPlus.addEventListener('click',    () => { if (wineCards    < MAX_CARDS)   { wineCards++;    calcUpdate(true); } });
-    calcBottleMinus.addEventListener('click', () => { if (extraBottles > 0)           { extraBottles--; calcUpdate(true); } });
-    calcBottlePlus.addEventListener('click',  () => { if (extraBottles < MAX_BOTTLES) { extraBottles++; calcUpdate(true); } });
+    calcCardMinus.addEventListener('click',   () => { if (wineCardAmount > CARD_MIN)   { wineCardAmount -= CARD_STEP; calcUpdate(true); } });
+    calcCardPlus.addEventListener('click',    () => { if (wineCardAmount < CARD_MAX)   { wineCardAmount += CARD_STEP; calcUpdate(true); } });
+    calcBottleMinus.addEventListener('click', () => { if (bottles        > BOTTLE_MIN) { bottles--;                  calcUpdate(true); } });
+    calcBottlePlus.addEventListener('click',  () => { if (bottles        < BOTTLE_MAX) { bottles++;                  calcUpdate(true); } });
     calcUpdate(false);
   }
 

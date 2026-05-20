@@ -627,31 +627,32 @@
         <div class="calc-left">
 
           <div class="calc-perk-group">
-            <p class="calc-question">How many times do you load your Wine Card?</p>
+            <p class="calc-question">How much do you load onto your Wine Card per month?</p>
             <div class="calc-controls">
-              <button class="calc-btn calc-btn--minus" id="calcCardMinus" aria-label="Decrease wine card top-ups" disabled>−</button>
+              <button class="calc-btn calc-btn--minus" id="calcCardMinus" aria-label="Decrease wine card amount" disabled>−</button>
               <span class="calc-display">
-                <span class="calc-value" id="calcCards">0</span>
-                <span class="calc-unit">top-ups</span>
+                <span class="calc-currency">$</span>
+                <span class="calc-value" id="calcCards">100</span>
+                <span class="calc-unit">loaded</span>
               </span>
-              <button class="calc-btn calc-btn--plus" id="calcCardPlus" aria-label="Increase wine card top-ups">+</button>
+              <button class="calc-btn calc-btn--plus" id="calcCardPlus" aria-label="Increase wine card amount">+</button>
             </div>
-            <p class="calc-note">Load any amount · We match it dollar-for-dollar · +$100 value each</p>
+            <p class="calc-note">We match every dollar you load · +$100 value per $100 loaded</p>
           </div>
 
           <div class="calc-perk-divider"></div>
 
           <div class="calc-perk-group">
-            <p class="calc-question">How many extra bottles do you buy per month?</p>
+            <p class="calc-question">How many bottles do you buy per month?</p>
             <div class="calc-controls">
-              <button class="calc-btn calc-btn--minus" id="calcBottleMinus" aria-label="Decrease extra bottles" disabled>−</button>
+              <button class="calc-btn calc-btn--minus" id="calcBottleMinus" aria-label="Decrease bottles" disabled>−</button>
               <span class="calc-display">
-                <span class="calc-value" id="calcExtraBottles">0</span>
+                <span class="calc-value" id="calcExtraBottles">1</span>
                 <span class="calc-unit">bottles</span>
               </span>
-              <button class="calc-btn calc-btn--plus" id="calcBottlePlus" aria-label="Increase extra bottles">+</button>
+              <button class="calc-btn calc-btn--plus" id="calcBottlePlus" aria-label="Increase bottles">+</button>
             </div>
-            <p class="calc-note">Beyond your free monthly bottle · 15% off $48 avg · +$7.20 per bottle</p>
+            <p class="calc-note">First bottle always free · 15% off additional at $48 avg</p>
           </div>
 
         </div>
@@ -660,7 +661,7 @@
             <div class="calc-row calc-row--value">
               <div>
                 <div class="calc-label">Monthly value received</div>
-                <div class="calc-sublabel">1 free bottle + $100 card match included</div>
+                <div class="calc-sublabel">Adjust the controls to see your value</div>
               </div>
               <div class="calc-amount calc-amount--value" id="calcValue">$72</div>
             </div>
