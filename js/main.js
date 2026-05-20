@@ -388,28 +388,44 @@
   }
 
   /* ----------------------------------------------------------
-     13. BENEFIT CARD — flip on click + tilt on front
+     13. BENEFIT CARD — midpoint-swap flip + tilt on front
      ---------------------------------------------------------- */
   document.querySelectorAll('.benefit-flip').forEach((flip) => {
     const front = flip.querySelector('.benefit-flip__front .benefit-card');
+    const inner = flip.querySelector('.benefit-flip__inner');
 
     flip.addEventListener('click', () => {
-      flip.classList.toggle('is-flipped');
-      if (front) front.style.transform = '';
+      if (flip.dataset.animating) return;
+      flip.dataset.animating = 'true';
+
+      inner.style.transition = 'transform 0.22s ease-in';
+      inner.style.transform = 'perspective(900px) rotateY(90deg) scale(0.95)';
+
+      setTimeout(() => {
+        flip.classList.toggle('is-flipped');
+        inner.style.transition = 'none';
+        inner.style.transform = 'perspective(900px) rotateY(-90deg) scale(0.95)';
+        requestAnimationFrame(() => requestAnimationFrame(() => {
+          inner.style.transition = 'transform 0.22s ease-out';
+          inner.style.transform = 'perspective(900px) rotateY(0deg) scale(1)';
+          setTimeout(() => {
+            inner.style.transform = '';
+            inner.style.transition = '';
+            delete flip.dataset.animating;
+          }, 230);
+        }));
+      }, 230);
     });
 
     if (front) {
       front.addEventListener('mousemove', (e) => {
-        if (prefersReducedMotion.matches || flip.classList.contains('is-flipped')) return;
+        if (prefersReducedMotion.matches || flip.classList.contains('is-flipped') || flip.dataset.animating) return;
         const rect = front.getBoundingClientRect();
         const dx = (e.clientX - rect.left) / rect.width - 0.5;
         const dy = (e.clientY - rect.top) / rect.height - 0.5;
-        front.style.transform =
-          `translateY(-8px) perspective(600px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
+        front.style.transform = `translateY(-6px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
       });
-      front.addEventListener('mouseleave', () => {
-        front.style.transform = '';
-      });
+      front.addEventListener('mouseleave', () => { front.style.transform = ''; });
     }
   });
 
