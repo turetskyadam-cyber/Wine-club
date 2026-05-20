@@ -197,14 +197,14 @@
   const calcAnnualEl  = document.getElementById('calcAnnual');
   const calcTrackFill = document.getElementById('calcTrackFill');
 
-  const AVG_BOTTLE    = 28;
+  const AVG_BOTTLE    = 48;
   const WINE_CARD_VAL = 20;
   const DISCOUNT      = 0.15;
   const MEMBERSHIP    = 29;
   const MIN_BOTTLES   = 1;
   const MAX_BOTTLES   = 12;
 
-  let bottles = 2;
+  let bottles = 1;
 
   function calcUpdate(animate) {
     const discountSavings = Math.max(0, (bottles - 1) * AVG_BOTTLE * DISCOUNT);
