@@ -6,8 +6,22 @@
 (function () {
   'use strict';
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
   /* ----------------------------------------------------------
-     1. INTERSECTION OBSERVER — entrance animations
+     1. SCROLL PROGRESS BAR
+     ---------------------------------------------------------- */
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = total > 0 ? (scrolled / total * 100) + '%' : '0%';
+    }, { passive: true });
+  }
+
+  /* ----------------------------------------------------------
+     2. INTERSECTION OBSERVER — entrance animations
      ---------------------------------------------------------- */
   const observer = new IntersectionObserver(
     (entries) => {
@@ -25,7 +39,7 @@
   });
 
   /* ----------------------------------------------------------
-     2. COUNTER ANIMATION — record strip numbers
+     3. COUNTER ANIMATION — record strip numbers
      ---------------------------------------------------------- */
   const counterObserver = new IntersectionObserver(
     (entries) => {
@@ -59,52 +73,101 @@
   }
 
   /* ----------------------------------------------------------
-     3. STICKY NAV — transparent → solid on scroll
+     4. STICKY NAV — transparent → solid on scroll
      ---------------------------------------------------------- */
   const nav = document.getElementById('site-nav');
   const hero = document.getElementById('hero');
 
   if (nav && hero) {
     const heroObserver = new IntersectionObserver(
-      ([entry]) => {
-        nav.classList.toggle('is-scrolled', !entry.isIntersecting);
-      },
+      ([entry]) => nav.classList.toggle('is-scrolled', !entry.isIntersecting),
       { threshold: 0.05 }
     );
     heroObserver.observe(hero);
   }
 
   /* ----------------------------------------------------------
-     4. PARALLAX — hero badge wrapper translateY only (spin lives in CSS)
-        Badge spin is handled by CSS .badge-spin-wrap animation.
-        JS only moves the wrapper vertically — no transform conflict.
+     5. ACTIVE NAV SECTION TRACKING
      ---------------------------------------------------------- */
-  const badgeWrap = document.querySelector('.hero-badge-wrap');
-  const isDesktop = window.matchMedia('(min-width: 769px)');
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const navLinks = document.querySelectorAll('.nav-links a[data-section]');
+  if (navLinks.length) {
+    const sectionIds = Array.from(navLinks).map((a) => a.dataset.section);
+    const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
 
-  if (badgeWrap && isDesktop.matches && !prefersReducedMotion.matches) {
-    let ticking = false;
-    window.addEventListener(
-      'scroll',
-      () => {
-        if (!ticking) {
-          requestAnimationFrame(() => {
-            const y = window.scrollY;
-            if (y < window.innerHeight * 1.2) {
-              badgeWrap.style.transform = `translateY(${y * 0.12}px)`;
-            }
-            ticking = false;
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.id;
+          navLinks.forEach((a) => {
+            a.classList.toggle('is-active', a.dataset.section === id);
           });
-          ticking = true;
-        }
+        });
       },
-      { passive: true }
+      { threshold: 0.3, rootMargin: '-20% 0px -60% 0px' }
     );
+    sections.forEach((s) => sectionObserver.observe(s));
   }
 
   /* ----------------------------------------------------------
-     5. 3D CARD TILT — wine card mockup follows cursor
+     6. HAMBURGER MENU
+     ---------------------------------------------------------- */
+  const hamburger = document.getElementById('navHamburger');
+  const overlay = document.getElementById('nav-overlay');
+  const overlayClose = document.getElementById('navClose');
+
+  function openMenu() {
+    hamburger.classList.add('is-open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    overlay.classList.add('is-open');
+    overlay.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    hamburger.classList.remove('is-open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  if (hamburger && overlay) {
+    hamburger.addEventListener('click', openMenu);
+    if (overlayClose) overlayClose.addEventListener('click', closeMenu);
+
+    overlay.querySelectorAll('.nav-overlay__link, .nav-overlay__cta').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && overlay.classList.contains('is-open')) closeMenu();
+    });
+  }
+
+  /* ----------------------------------------------------------
+     7. PARALLAX — hero badge translateY
+     ---------------------------------------------------------- */
+  const badgeWrap = document.querySelector('.hero-badge-wrap');
+  const isDesktop = window.matchMedia('(min-width: 769px)');
+
+  if (badgeWrap && isDesktop.matches && !prefersReducedMotion.matches) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          if (y < window.innerHeight * 1.2) {
+            badgeWrap.style.transform = `translateY(${y * 0.1}px)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  /* ----------------------------------------------------------
+     8. 3D CARD TILT — wine card mockup follows cursor
      ---------------------------------------------------------- */
   const cardMockup = document.getElementById('cardMockup');
   if (cardMockup) {
@@ -115,20 +178,97 @@
       const cy = rect.top + rect.height / 2;
       const dx = (e.clientX - cx) / (rect.width / 2);
       const dy = (e.clientY - cy) / (rect.height / 2);
-      const rotX = -dy * 10;
-      const rotY = dx * 14;
-      cardMockup.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.03)`;
+      cardMockup.style.transform =
+        `perspective(900px) rotateX(${-dy * 10}deg) rotateY(${dx * 14}deg) scale(1.03)`;
     });
-
     cardMockup.addEventListener('mouseleave', () => {
       cardMockup.style.transform = 'perspective(900px) rotateY(-12deg) rotateX(4deg)';
     });
   }
 
   /* ----------------------------------------------------------
-     6. FORM — validation, loading state, success reveal
+     9. VALUE CALCULATOR
      ---------------------------------------------------------- */
-  const form = document.getElementById('signup-form');
+  const calcMinus = document.getElementById('calcMinus');
+  const calcPlus  = document.getElementById('calcPlus');
+  const calcBottlesEl = document.getElementById('calcBottles');
+  const calcValueEl   = document.getElementById('calcValue');
+  const calcSavingsEl = document.getElementById('calcSavings');
+  const calcAnnualEl  = document.getElementById('calcAnnual');
+  const calcTrackFill = document.getElementById('calcTrackFill');
+
+  const AVG_BOTTLE    = 28;
+  const WINE_CARD_VAL = 20;
+  const DISCOUNT      = 0.15;
+  const MEMBERSHIP    = 29;
+  const MIN_BOTTLES   = 1;
+  const MAX_BOTTLES   = 12;
+
+  let bottles = 2;
+
+  function calcUpdate(animate) {
+    const discountSavings = Math.max(0, (bottles - 1) * AVG_BOTTLE * DISCOUNT);
+    const totalValue = Math.round(AVG_BOTTLE + WINE_CARD_VAL + discountSavings);
+    const savings = totalValue - MEMBERSHIP;
+    const annual  = totalValue * 12;
+
+    calcBottlesEl.textContent = bottles;
+    calcValueEl.textContent   = '$' + totalValue;
+    calcSavingsEl.textContent = '$' + savings;
+    calcAnnualEl.textContent  = '$' + annual.toLocaleString();
+
+    const pct = ((bottles - MIN_BOTTLES) / (MAX_BOTTLES - MIN_BOTTLES)) * 100;
+    if (calcTrackFill) calcTrackFill.style.width = Math.max(4, pct) + '%';
+
+    if (animate && !prefersReducedMotion.matches) {
+      [calcBottlesEl, calcValueEl, calcSavingsEl].forEach((el) => {
+        el.classList.remove('is-changing');
+        void el.offsetWidth;
+        el.classList.add('is-changing');
+        setTimeout(() => el.classList.remove('is-changing'), 350);
+      });
+    }
+
+    if (calcMinus) calcMinus.disabled = bottles <= MIN_BOTTLES;
+    if (calcPlus)  calcPlus.disabled  = bottles >= MAX_BOTTLES;
+  }
+
+  if (calcMinus && calcPlus && calcBottlesEl) {
+    calcMinus.addEventListener('click', () => {
+      if (bottles > MIN_BOTTLES) { bottles--; calcUpdate(true); }
+    });
+    calcPlus.addEventListener('click', () => {
+      if (bottles < MAX_BOTTLES) { bottles++; calcUpdate(true); }
+    });
+    calcUpdate(false);
+  }
+
+  /* ----------------------------------------------------------
+     10. FAQ ACCORDION
+     ---------------------------------------------------------- */
+  document.querySelectorAll('.faq-q').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item   = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-a');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      /* Close all open items first */
+      document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach((openBtn) => {
+        if (openBtn === btn) return;
+        openBtn.setAttribute('aria-expanded', 'false');
+        const openAnswer = openBtn.closest('.faq-item').querySelector('.faq-a');
+        if (openAnswer) openAnswer.setAttribute('aria-hidden', 'true');
+      });
+
+      btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+      if (answer) answer.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+    });
+  });
+
+  /* ----------------------------------------------------------
+     11. FORM — validation, loading state, success reveal
+     ---------------------------------------------------------- */
+  const form      = document.getElementById('signup-form');
   const successEl = document.getElementById('form-success');
   const submitBtn = document.getElementById('submitBtn');
 
@@ -137,9 +277,9 @@
       e.preventDefault();
       clearErrors();
 
-      const name = form.elements['name'].value.trim();
+      const name  = form.elements['name'].value.trim();
       const email = form.elements['email'].value.trim();
-      let valid = true;
+      let valid   = true;
 
       if (!name) {
         showError('fname', 'Please enter your full name.');
@@ -151,20 +291,18 @@
       }
 
       if (!valid) {
-        /* Shake the first errored field's label */
         const firstErr = form.querySelector('.error');
         if (firstErr) firstErr.focus();
         return;
       }
 
-      /* Loading state */
       setLoading(true);
 
       try {
         /* -------------------------------------------------
-           BACKEND HOOK — uncomment and replace URL to wire up
-           e.g. Formspree: https://formspree.io/f/YOUR_FORM_ID
-           e.g. Netlify Forms: add `netlify` attr to <form>
+           BACKEND HOOK — uncomment and replace URL:
+           e.g. Formspree:  https://formspree.io/f/YOUR_ID
+           e.g. Netlify:    add netlify attr to <form>
 
         const response = await fetch(form.action, {
           method: 'POST',
@@ -174,10 +312,9 @@
         if (!response.ok) throw new Error('Server error');
         ------------------------------------------------- */
 
-        await new Promise((r) => setTimeout(r, 900)); /* simulate latency */
+        await new Promise((r) => setTimeout(r, 900));
 
-        /* Reveal success with a tiny flourish */
-        form.style.opacity = '0';
+        form.style.opacity   = '0';
         form.style.transform = 'scale(0.97)';
         form.style.transition = 'opacity 0.3s, transform 0.3s';
 
@@ -195,17 +332,17 @@
   }
 
   function setLoading(on) {
-    const textEl = submitBtn.querySelector('.btn-text');
-    const arrowEl = submitBtn.querySelector('.btn-arrow');
+    const textEl    = submitBtn.querySelector('.btn-text');
+    const arrowEl   = submitBtn.querySelector('.btn-arrow');
     const spinnerEl = submitBtn.querySelector('.btn-spinner');
     submitBtn.disabled = on;
     if (on) {
       textEl.textContent = 'Joining…';
-      if (arrowEl) arrowEl.hidden = true;
+      if (arrowEl)   arrowEl.hidden   = true;
       if (spinnerEl) spinnerEl.hidden = false;
     } else {
       textEl.textContent = 'Join the Wine Club';
-      if (arrowEl) arrowEl.hidden = false;
+      if (arrowEl)   arrowEl.hidden   = false;
       if (spinnerEl) spinnerEl.hidden = true;
     }
   }
@@ -226,7 +363,49 @@
   }
 
   /* ----------------------------------------------------------
-     7. MICRO-INTERACTION — pricing card price hover pop
+     12. FLOATING MOBILE CTA — show after hero, hide at form
+     ---------------------------------------------------------- */
+  const mobileCta = document.getElementById('mobile-cta');
+  const joinSection = document.getElementById('join');
+
+  if (mobileCta && hero && joinSection) {
+    const ctaObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.target === hero) {
+            if (!entry.isIntersecting) mobileCta.classList.add('is-visible');
+            else mobileCta.classList.remove('is-visible');
+          }
+          if (entry.target === joinSection) {
+            if (entry.isIntersecting) mobileCta.classList.remove('is-visible');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    ctaObserver.observe(hero);
+    ctaObserver.observe(joinSection);
+  }
+
+  /* ----------------------------------------------------------
+     13. BENEFIT CARD — tilt micro-interaction
+     ---------------------------------------------------------- */
+  document.querySelectorAll('.benefit-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      if (prefersReducedMotion.matches) return;
+      const rect = card.getBoundingClientRect();
+      const dx = (e.clientX - rect.left) / rect.width - 0.5;
+      const dy = (e.clientY - rect.top) / rect.height - 0.5;
+      card.style.transform =
+        `translateY(-8px) perspective(600px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  /* ----------------------------------------------------------
+     14. PRICING CARD — price hover pop
      ---------------------------------------------------------- */
   const priceAmount = document.querySelector('.price-amount');
   const pricingCard = document.querySelector('.pricing-card');
@@ -237,7 +416,7 @@
   }
 
   /* ----------------------------------------------------------
-     8. SMOOTH ANCHOR SCROLL with offset
+     15. SMOOTH ANCHOR SCROLL with nav offset
      ---------------------------------------------------------- */
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -250,46 +429,7 @@
   });
 
   /* ----------------------------------------------------------
-     9. BENEFIT CARD — icon tilt micro-interaction
-     ---------------------------------------------------------- */
-  document.querySelectorAll('.benefit-card').forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      if (prefersReducedMotion.matches) return;
-      const rect = card.getBoundingClientRect();
-      const dx = (e.clientX - rect.left) / rect.width - 0.5;
-      const dy = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform = `translateY(-8px) perspective(600px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-
-  /* ----------------------------------------------------------
-     10. ORNAMENT LINES — staggered width reveal
-     ---------------------------------------------------------- */
-  const ornamentObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      const lines = entry.target.querySelectorAll('.ornament-line');
-      lines.forEach((line, i) => {
-        line.style.transition = `width 0.6s cubic-bezier(0.16,1,0.3,1) ${i * 120}ms`;
-        line.style.width = '50px';
-      });
-      ornamentObserver.unobserve(entry.target);
-    });
-  }, { threshold: 0.8 });
-
-  /* Pre-collapse ornament lines so they animate in */
-  document.querySelectorAll('.hero-ornament').forEach((el) => {
-    el.querySelectorAll('.ornament-line').forEach((line) => {
-      line.style.width = '0';
-    });
-    ornamentObserver.observe(el);
-  });
-
-  /* ----------------------------------------------------------
-     11. STRIP STAT — subtle entrance pop
+     16. STRIP STAT — staggered entrance pop
      ---------------------------------------------------------- */
   const stripStatObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -312,7 +452,7 @@
   if (strip) stripStatObserver.observe(strip);
 
   /* ----------------------------------------------------------
-     12. DYNAMIC COPYRIGHT YEAR
+     17. DYNAMIC COPYRIGHT YEAR
      ---------------------------------------------------------- */
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
