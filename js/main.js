@@ -217,14 +217,14 @@
     const savings     = totalValue - MEMBERSHIP;
     const annual      = totalValue * 12;
 
-    if (calcCardsEl) calcCardsEl.textContent = wineCardAmount;
-    if (calcExtraEl) calcExtraEl.textContent = bottles;
-    calcValueEl.textContent   = '$' + totalValue;
-    calcSavingsEl.textContent = '$' + savings;
-    calcAnnualEl.textContent  = '$' + annual.toLocaleString();
+    if (calcCardsEl)   calcCardsEl.textContent   = wineCardAmount;
+    if (calcExtraEl)   calcExtraEl.textContent   = bottles;
+    if (calcValueEl)   calcValueEl.textContent   = '$' + totalValue;
+    if (calcSavingsEl) calcSavingsEl.textContent = '$' + savings;
+    if (calcAnnualEl)  calcAnnualEl.textContent  = '$' + annual.toLocaleString();
 
     if (animate && !prefersReducedMotion.matches) {
-      [calcValueEl, calcSavingsEl].forEach((el) => {
+      [calcValueEl, calcSavingsEl].filter(Boolean).forEach((el) => {
         el.classList.remove('is-changing');
         void el.offsetWidth;
         el.classList.add('is-changing');
@@ -238,13 +238,11 @@
     if (calcBottlePlus)  calcBottlePlus.disabled  = bottles        >= BOTTLE_MAX;
   }
 
-  if (calcCardMinus && calcCardPlus && calcCardsEl && calcBottleMinus && calcBottlePlus && calcExtraEl) {
-    calcCardMinus.addEventListener('click',   () => { if (wineCardAmount > CARD_MIN)   { wineCardAmount -= CARD_STEP; calcUpdate(true); } });
-    calcCardPlus.addEventListener('click',    () => { if (wineCardAmount < CARD_MAX)   { wineCardAmount += CARD_STEP; calcUpdate(true); } });
-    calcBottleMinus.addEventListener('click', () => { if (bottles        > BOTTLE_MIN) { bottles--;                  calcUpdate(true); } });
-    calcBottlePlus.addEventListener('click',  () => { if (bottles        < BOTTLE_MAX) { bottles++;                  calcUpdate(true); } });
-    calcUpdate(false);
-  }
+  if (calcCardMinus)   calcCardMinus.addEventListener('click',   () => { if (wineCardAmount > CARD_MIN)   { wineCardAmount -= CARD_STEP; calcUpdate(true); } });
+  if (calcCardPlus)    calcCardPlus.addEventListener('click',    () => { if (wineCardAmount < CARD_MAX)   { wineCardAmount += CARD_STEP; calcUpdate(true); } });
+  if (calcBottleMinus) calcBottleMinus.addEventListener('click', () => { if (bottles        > BOTTLE_MIN) { bottles--;                  calcUpdate(true); } });
+  if (calcBottlePlus)  calcBottlePlus.addEventListener('click',  () => { if (bottles        < BOTTLE_MAX) { bottles++;                  calcUpdate(true); } });
+  calcUpdate(false);
 
   /* ----------------------------------------------------------
      10. FAQ ACCORDION
