@@ -5,12 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Join The Wine Room Wine Club — $29/month for 180+ wines on tap, a monthly bottle, exclusive member perks, and access to the world's largest wine-on-tap experience in Delray Beach, FL.">
   <title>Wine Club | The Wine Room, Kitchen &amp; Bar — Delray Beach</title>
-  <link rel="stylesheet" href="css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+
+  <!-- =================== STICKY NAV =================== -->
+  <nav id="site-nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="The Wine Room — home">
+        <img
+          src="assets/logo-wine-room.png"
+          alt="The Wine Room"
+          class="nav-logo__img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        >
+        <span class="nav-logo__fallback" style="display:none;">The Wine Room</span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#benefits">Perks</a></li>
+        <li><a href="#wine-card">Wine Card</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <a href="#join" class="btn btn--primary nav-cta">Join $29/mo</a>
+    </div>
+  </nav>
 
   <!-- =================== HERO =================== -->
   <section id="hero">
@@ -19,7 +40,7 @@
     <div class="hero-bg-orb hero-bg-orb--3"></div>
 
     <div class="hero-inner">
-      <div class="hero-logo-wrap" data-animate>
+      <div class="hero-logo-wrap hero-reveal" style="--reveal-delay:0ms">
         <img
           src="assets/logo-wine-room.png"
           alt="The Wine Room"
@@ -48,27 +69,27 @@
         </div>
       </div>
 
-      <div class="hero-ornament" data-animate>
+      <div class="hero-ornament hero-reveal" style="--reveal-delay:150ms">
         <span class="ornament-line"></span>
         <span class="ornament-glyph">✦</span>
         <span class="ornament-line"></span>
       </div>
 
-      <p class="eyebrow" data-animate>World Record Holders · Delray Beach, Florida</p>
+      <p class="eyebrow hero-reveal" style="--reveal-delay:250ms">World Record Holders · Delray Beach, Florida</p>
 
-      <h1 class="hero-headline" data-animate>
+      <h1 class="hero-headline hero-reveal" style="--reveal-delay:380ms">
         Join the<br>
         <em class="gradient-text">Club.</em>
         Taste the<br>
         <em class="gradient-text">World.</em>
       </h1>
 
-      <p class="hero-sub" data-animate>
+      <p class="hero-sub hero-reveal" style="--reveal-delay:520ms">
         180+ wines on tap. One handpicked bottle monthly.<br>
         Unlimited discovery. All for <strong>$29/month.</strong>
       </p>
 
-      <div class="hero-ctas" data-animate>
+      <div class="hero-ctas hero-reveal" style="--reveal-delay:650ms">
         <a href="#join" class="btn btn--primary">
           <span>Join for $29/month</span>
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -78,14 +99,15 @@
         <a href="#benefits" class="btn btn--ghost">See Member Benefits</a>
       </div>
 
-      <div class="hero-badge-wrap" data-animate>
-        <img
-          src="assets/world-record-badge.png"
-          alt="World Record Holder — The Wine Room"
-          class="badge-hero"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-        >
-        <div class="badge-fallback" style="display:none;">
+      <div class="hero-badge-wrap hero-reveal" style="--reveal-delay:750ms">
+        <div class="badge-spin-wrap">
+          <img
+            src="assets/world-record-badge.png"
+            alt="World Record Holder — The Wine Room"
+            class="badge-hero"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          >
+          <div class="badge-fallback" style="display:none;">
           <div class="badge-fallback__inner">
             <span class="badge-fallback__top">WORLD RECORD</span>
             <div class="badge-fallback__icon">
@@ -101,9 +123,10 @@
             <span class="badge-fallback__bottom">THE WINE ROOM</span>
           </div>
         </div>
+        </div><!-- /badge-spin-wrap -->
       </div>
 
-      <div class="hero-scroll-hint" data-animate>
+      <div class="hero-scroll-hint hero-reveal" style="--reveal-delay:900ms">
         <div class="scroll-mouse">
           <div class="scroll-wheel"></div>
         </div>
@@ -241,7 +264,7 @@
           <div class="card-tag">Earn on Every Visit</div>
         </div>
 
-        <div class="benefit-card benefit-card--rare">
+        <div class="benefit-card benefit-card--rare benefit-card--last">
           <div class="card-icon">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M20 6l3 9h9l-7.5 5.5 3 9-7.5-5.5-7.5 5.5 3-9L7 15h9z" stroke="#C4962A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
@@ -252,6 +275,58 @@
           <h3 class="card-title">Rare Room Access</h3>
           <p class="card-body">Exclusive discounts inside The Rare Room — our glass-enclosed vault of over 2,400 rare and hard-to-find bottles from around the world. Members only pricing.</p>
           <div class="card-tag">2,400+ Rare Bottles</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== TESTIMONIALS =================== -->
+  <section id="testimonials">
+    <div class="section-inner">
+      <div class="section-header" data-animate>
+        <p class="eyebrow eyebrow--dark">Members Say</p>
+        <h2 class="section-title">The Club<br><em>Speaks for Itself</em></h2>
+      </div>
+      <div class="testimonials-grid" data-animate-stagger>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-body">The wine card alone is worth three times the membership fee. I've tried wines I never would have ordered off a list — and found two new favorites just this month.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">S</div>
+            <div>
+              <div class="testimonial-name">Sarah M.</div>
+              <div class="testimonial-since">Member since 2022</div>
+            </div>
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+
+        <div class="testimonial-card testimonial-card--featured">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-body">The monthly pickup party is genuinely fun. It's not just a bottle drop-off — it's an event. We've met so many wine people from Delray through this club.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">J</div>
+            <div>
+              <div class="testimonial-name">James &amp; Linda K.</div>
+              <div class="testimonial-since">Members since 2021</div>
+            </div>
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-body">I used to spend $29 on a single glass at other places. Here that's my entire month — a bottle, my card topped up, early access to events, and discounts on everything I buy.</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">R</div>
+            <div>
+              <div class="testimonial-name">Rachel T.</div>
+              <div class="testimonial-since">Member since 2023</div>
+            </div>
+          </div>
+          <div class="testimonial-stars">★★★★★</div>
         </div>
 
       </div>
@@ -556,7 +631,7 @@
       </div>
     </div>
     <div class="footer-bar">
-      <p>&copy; 2024 The Wine Room, Kitchen &amp; Bar. All rights reserved.</p>
+      <p>&copy; <span id="footer-year"></span> The Wine Room, Kitchen &amp; Bar. All rights reserved.</p>
     </div>
   </footer>
 

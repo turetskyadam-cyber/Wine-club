@@ -59,13 +59,31 @@
   }
 
   /* ----------------------------------------------------------
-     3. PARALLAX — hero badge on scroll (desktop only)
+     3. STICKY NAV — transparent → solid on scroll
      ---------------------------------------------------------- */
-  const badge = document.querySelector('.badge-hero, .badge-fallback');
+  const nav = document.getElementById('site-nav');
+  const hero = document.getElementById('hero');
+
+  if (nav && hero) {
+    const heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        nav.classList.toggle('is-scrolled', !entry.isIntersecting);
+      },
+      { threshold: 0.05 }
+    );
+    heroObserver.observe(hero);
+  }
+
+  /* ----------------------------------------------------------
+     4. PARALLAX — hero badge wrapper translateY only (spin lives in CSS)
+        Badge spin is handled by CSS .badge-spin-wrap animation.
+        JS only moves the wrapper vertically — no transform conflict.
+     ---------------------------------------------------------- */
+  const badgeWrap = document.querySelector('.hero-badge-wrap');
   const isDesktop = window.matchMedia('(min-width: 769px)');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-  if (badge && isDesktop.matches && !prefersReducedMotion.matches) {
+  if (badgeWrap && isDesktop.matches && !prefersReducedMotion.matches) {
     let ticking = false;
     window.addEventListener(
       'scroll',
@@ -74,7 +92,7 @@
           requestAnimationFrame(() => {
             const y = window.scrollY;
             if (y < window.innerHeight * 1.2) {
-              badge.style.transform = `rotate(${y * 0.05}deg) translateY(${y * 0.12}px)`;
+              badgeWrap.style.transform = `translateY(${y * 0.12}px)`;
             }
             ticking = false;
           });
@@ -86,7 +104,7 @@
   }
 
   /* ----------------------------------------------------------
-     4. 3D CARD TILT — wine card mockup follows cursor
+     5. 3D CARD TILT — wine card mockup follows cursor
      ---------------------------------------------------------- */
   const cardMockup = document.getElementById('cardMockup');
   if (cardMockup) {
@@ -108,7 +126,7 @@
   }
 
   /* ----------------------------------------------------------
-     5. FORM — validation, loading state, success reveal
+     6. FORM — validation, loading state, success reveal
      ---------------------------------------------------------- */
   const form = document.getElementById('signup-form');
   const successEl = document.getElementById('form-success');
@@ -208,7 +226,7 @@
   }
 
   /* ----------------------------------------------------------
-     6. MICRO-INTERACTION — pricing card price hover pop
+     7. MICRO-INTERACTION — pricing card price hover pop
      ---------------------------------------------------------- */
   const priceAmount = document.querySelector('.price-amount');
   const pricingCard = document.querySelector('.pricing-card');
@@ -219,7 +237,7 @@
   }
 
   /* ----------------------------------------------------------
-     7. SMOOTH ANCHOR SCROLL with offset
+     8. SMOOTH ANCHOR SCROLL with offset
      ---------------------------------------------------------- */
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (e) => {
@@ -232,7 +250,7 @@
   });
 
   /* ----------------------------------------------------------
-     8. BENEFIT CARD — icon tilt micro-interaction
+     9. BENEFIT CARD — icon tilt micro-interaction
      ---------------------------------------------------------- */
   document.querySelectorAll('.benefit-card').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
@@ -248,7 +266,7 @@
   });
 
   /* ----------------------------------------------------------
-     9. ORNAMENT LINES — staggered width reveal
+     10. ORNAMENT LINES — staggered width reveal
      ---------------------------------------------------------- */
   const ornamentObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -271,7 +289,7 @@
   });
 
   /* ----------------------------------------------------------
-     10. STRIP STAT — subtle entrance pop
+     11. STRIP STAT — subtle entrance pop
      ---------------------------------------------------------- */
   const stripStatObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -292,5 +310,11 @@
 
   const strip = document.getElementById('record-strip');
   if (strip) stripStatObserver.observe(strip);
+
+  /* ----------------------------------------------------------
+     12. DYNAMIC COPYRIGHT YEAR
+     ---------------------------------------------------------- */
+  const yearEl = document.getElementById('footer-year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 })();
