@@ -388,20 +388,29 @@
   }
 
   /* ----------------------------------------------------------
-     13. BENEFIT CARD — tilt micro-interaction
+     13. BENEFIT CARD — flip on click + tilt on front
      ---------------------------------------------------------- */
-  document.querySelectorAll('.benefit-card').forEach((card) => {
-    card.addEventListener('mousemove', (e) => {
-      if (prefersReducedMotion.matches) return;
-      const rect = card.getBoundingClientRect();
-      const dx = (e.clientX - rect.left) / rect.width - 0.5;
-      const dy = (e.clientY - rect.top) / rect.height - 0.5;
-      card.style.transform =
-        `translateY(-8px) perspective(600px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
+  document.querySelectorAll('.benefit-flip').forEach((flip) => {
+    const front = flip.querySelector('.benefit-flip__front .benefit-card');
+
+    flip.addEventListener('click', () => {
+      flip.classList.toggle('is-flipped');
+      if (front) front.style.transform = '';
     });
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
+
+    if (front) {
+      front.addEventListener('mousemove', (e) => {
+        if (prefersReducedMotion.matches || flip.classList.contains('is-flipped')) return;
+        const rect = front.getBoundingClientRect();
+        const dx = (e.clientX - rect.left) / rect.width - 0.5;
+        const dy = (e.clientY - rect.top) / rect.height - 0.5;
+        front.style.transform =
+          `translateY(-8px) perspective(600px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg)`;
+      });
+      front.addEventListener('mouseleave', () => {
+        front.style.transform = '';
+      });
+    }
   });
 
   /* ----------------------------------------------------------

@@ -192,55 +192,45 @@
   <!-- Diagonal separator: burgundy → champagne -->
   <div class="sep sep--burg-to-champ" aria-hidden="true"></div>
 
-  <!-- =================== JOIN FORM =================== -->
-  <section id="join">
-    <div class="join-bg-orb join-bg-orb--1" aria-hidden="true"></div>
-    <div class="join-bg-orb join-bg-orb--2" aria-hidden="true"></div>
-    <div class="section-inner join-inner">
-      <div class="join-header" data-animate>
-        <p class="eyebrow">Reserve Your Spot</p>
-        <h2 class="join-title">Your First Bottle<br><em>Is Waiting.</em></h2>
-        <p class="join-sub">Join a community of wine lovers in Delray Beach. We'll be in touch about your membership details.</p>
+  <!-- =================== PRICING =================== -->
+  <section id="pricing">
+    <div class="section-inner pricing-inner">
+      <div class="section-header" data-animate>
+        <p class="eyebrow eyebrow--dark">Membership</p>
+        <h2 class="section-title">Simple. Honest.<br><em>Worth It.</em></h2>
       </div>
-      <div class="join-form-wrap" data-animate>
-        <form id="signup-form" novalidate>
-          <!-- Backend hook: add action="YOUR_FORMSPREE_OR_NETLIFY_URL" method="POST" -->
-          <div class="field-group">
-            <label for="fname">Full Name</label>
-            <div class="input-wrap">
-              <svg class="input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="#7B1C3C" stroke-width="1.2" fill="none"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#7B1C3C" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
-              <input type="text" id="fname" name="name" placeholder="Your name" required autocomplete="name">
-            </div>
-          </div>
-          <div class="field-group">
-            <label for="femail">Email Address</label>
-            <div class="input-wrap">
-              <svg class="input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="#7B1C3C" stroke-width="1.2" fill="none"/><path d="M1 5l7 5 7-5" stroke="#7B1C3C" stroke-width="1.2" stroke-linecap="round"/></svg>
-              <input type="email" id="femail" name="email" placeholder="you@email.com" required autocomplete="email">
-            </div>
-          </div>
-          <div class="field-group">
-            <label for="fphone">Phone Number <span class="field-optional">(optional)</span></label>
-            <div class="input-wrap">
-              <svg class="input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 4-2 1.2c1 2 2.8 3.8 4.8 4.8L11.5 10 15 11.5v3C15 14.8 14.8 15 10.5 13S2 7.3 2 3V2h1z" stroke="#7B1C3C" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg>
-              <input type="tel" id="fphone" name="phone" placeholder="(561) 000-0000" autocomplete="tel">
-            </div>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full btn--submit" id="submitBtn">
-            <span class="btn-text">Join the Wine Club</span>
-            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <span class="btn-spinner" hidden><svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="spin"><circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><path d="M9 2a7 7 0 0 1 7 7" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>
-          </button>
-          <p class="form-disclaimer">By submitting, you agree to be contacted about your Wine Club membership. We never share your information.</p>
-        </form>
-        <div id="form-success" class="form-success" hidden>
-          <div class="success-icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#C4962A" stroke-width="1.5" fill="none"/><path d="M14 24l7 7 13-14" stroke="#7B1C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </div>
-          <h3>Welcome to the Club.</h3>
-          <p>We'll be in touch shortly about your membership.<br>See you at the next pickup party.</p>
-          <div class="success-ornament">✦</div>
+      <div class="pricing-card" data-animate>
+        <div class="pricing-card__accent"></div>
+        <div class="pricing-card__shimmer"></div>
+        <div class="pricing-card__header">
+          <span class="pricing-badge">WINE CLUB MEMBERSHIP</span>
         </div>
+        <div class="pricing-card__price">
+          <sup class="price-dollar">$</sup>
+          <span class="price-amount">29</span>
+          <sub class="price-period">/ month</sub>
+        </div>
+        <div class="pricing-divider">
+          <span class="pricing-divider__line"></span>
+          <span class="pricing-divider__glyph">✦</span>
+          <span class="pricing-divider__line"></span>
+        </div>
+        <ul class="pricing-list">
+          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>1 bottle per month</strong> + monthly pickup party</span></li>
+          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Wine card match</strong> — we match any amount dollar-for-dollar · 180+ wines, 7 days/week</span></li>
+          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>First notifications</strong> of events &amp; tastings</span></li>
+          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>15% off 6 bottles</strong>, <strong>20% off 12 bottles</strong></span></li>
+          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Member pricing</strong> across all retail selections</span></li>
+          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Points earned</strong> on every dining visit</span></li>
+          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Rare Room discounts</strong> — 2,400+ exclusive bottles</span></li>
+        </ul>
+        <a href="#join" class="btn btn--primary btn--full">
+          <span>Join the Club</span>
+          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <p class="pricing-fine">No commitment. Cancel anytime.</p>
       </div>
     </div>
   </section>
@@ -255,102 +245,209 @@
       </div>
 
       <div class="benefits-grid" data-animate-stagger>
-        <div class="benefit-card">
-          <div class="card-icon">
-            <img src="assets/wine-bottle-icon.png" alt="" width="36" height="52" style="display:block;object-fit:contain;">
+
+        <div class="benefit-flip">
+          <div class="benefit-flip__inner">
+            <div class="benefit-flip__front">
+              <div class="benefit-card">
+                <div class="card-icon">
+                  <img src="assets/wine-bottle-icon.png" alt="" width="36" height="52" style="display:block;object-fit:contain;">
+                </div>
+                <div class="card-number">01</div>
+                <h3 class="card-title">1 Bottle Every Month</h3>
+                <p class="card-body">A hand-selected bottle is yours at every monthly pickup party — a real celebration, not just a transaction. Come for the wine, stay for the community.</p>
+                <div class="card-tag">+ Monthly Pickup Party</div>
+                <span class="card-flip-hint">Tap to learn more</span>
+              </div>
+            </div>
+            <div class="benefit-flip__back">
+              <div class="benefit-card-back">
+                <div class="card-back__number">01</div>
+                <h3 class="card-back__title">1 Bottle Every Month</h3>
+                <p class="card-back__body">Each month our team hand-selects a bottle chosen for quality, story, and value. Your bottle is ready at our monthly pickup party — a real event with live pours and an introduction to the featured wine. Members are notified first, long before the public hears about it. Come for the bottle, stay for the community.</p>
+                <span class="card-back__close">Tap to flip back</span>
+              </div>
+            </div>
           </div>
-          <div class="card-number">01</div>
-          <h3 class="card-title">1 Bottle Every Month</h3>
-          <p class="card-body">A hand-selected bottle is yours at every monthly pickup party — a real celebration, not just a transaction. Come for the wine, stay for the community.</p>
-          <div class="card-tag">+ Monthly Pickup Party</div>
         </div>
 
-        <div class="benefit-card benefit-card--featured">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <rect x="4" y="12" width="32" height="20" rx="4" stroke="#C4962A" stroke-width="1.5" fill="none"/>
-              <path d="M4 18h32" stroke="#C4962A" stroke-width="1.5"/>
-              <circle cx="12" cy="26" r="2" fill="#C4962A"/>
-              <circle cx="18" cy="26" r="2" stroke="#C4962A" stroke-width="1" fill="none"/>
-              <path d="M26 24h6" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
-              <path d="M26 28h4" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+        <div class="benefit-flip">
+          <div class="benefit-flip__inner">
+            <div class="benefit-flip__front">
+              <div class="benefit-card benefit-card--featured">
+                <div class="card-icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <rect x="4" y="12" width="32" height="20" rx="4" stroke="#C4962A" stroke-width="1.5" fill="none"/>
+                    <path d="M4 18h32" stroke="#C4962A" stroke-width="1.5"/>
+                    <circle cx="12" cy="26" r="2" fill="#C4962A"/>
+                    <circle cx="18" cy="26" r="2" stroke="#C4962A" stroke-width="1" fill="none"/>
+                    <path d="M26 24h6" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
+                    <path d="M26 28h4" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="card-number">02</div>
+                <h3 class="card-title">Wine Card Match</h3>
+                <p class="card-body">Load any amount onto your personal Enomatic card and we match it dollar-for-dollar — instantly doubling your balance to explore 180+ wines on tap across 26 self-pour machines, any day of the week.</p>
+                <div class="card-tag">Dollar-for-Dollar Match · 7 Days a Week</div>
+                <span class="card-flip-hint">Tap to learn more</span>
+              </div>
+            </div>
+            <div class="benefit-flip__back">
+              <div class="benefit-card-back benefit-card-back--featured">
+                <div class="card-back__number">02</div>
+                <h3 class="card-back__title">Wine Card Match</h3>
+                <p class="card-back__body">Your personal Enomatic card works like a gift card for our self-pour system. Load any amount and we instantly double it — no cap, no minimum. Walk up to any of our 26 Italian-made machines, choose your pour: 1oz taste, 2.5oz half-glass, or 5oz full glass. Available every day of the week with no expiry on your balance.</p>
+                <span class="card-back__close">Tap to flip back</span>
+              </div>
+            </div>
           </div>
-          <div class="card-number">02</div>
-          <h3 class="card-title">Wine Card Match</h3>
-          <p class="card-body">Load any amount onto your personal Enomatic card and we match it dollar-for-dollar — instantly doubling your balance to explore 180+ wines on tap across 26 self-pour machines, any day of the week.</p>
-          <div class="card-tag">Dollar-for-Dollar Match · 7 Days a Week</div>
         </div>
 
-        <div class="benefit-card">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path d="M20 6a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" stroke="#C4962A" stroke-width="1.5" fill="none"/>
-              <path d="M20 6v-3M26 8l2-2M34 16h3M26 28l2 2M20 30v3M14 28l-2 2M6 16H3M14 8l-2-2" stroke="#C4962A" stroke-width="1.2" stroke-linecap="round"/>
-              <circle cx="20" cy="16" r="3" fill="#C4962A"/>
-            </svg>
+        <div class="benefit-flip">
+          <div class="benefit-flip__inner">
+            <div class="benefit-flip__front">
+              <div class="benefit-card">
+                <div class="card-icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 6a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" stroke="#C4962A" stroke-width="1.5" fill="none"/>
+                    <path d="M20 6v-3M26 8l2-2M34 16h3M26 28l2 2M20 30v3M14 28l-2 2M6 16H3M14 8l-2-2" stroke="#C4962A" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="20" cy="16" r="3" fill="#C4962A"/>
+                  </svg>
+                </div>
+                <div class="card-number">03</div>
+                <h3 class="card-title">First to Know</h3>
+                <p class="card-body">Priority access to events, tastings, and special releases — always before the public. You're the inner circle, and you get treated like it.</p>
+                <div class="card-tag">Exclusive Early Access</div>
+                <span class="card-flip-hint">Tap to learn more</span>
+              </div>
+            </div>
+            <div class="benefit-flip__back">
+              <div class="benefit-card-back">
+                <div class="card-back__number">03</div>
+                <h3 class="card-back__title">First to Know</h3>
+                <p class="card-back__body">Members are the inner circle. Winemaker dinners, exclusive tastings, new arrivals, and special events — you're notified before anyone else. Seats at these events are limited and often sell out before we open to the public. Being first isn't just a perk here — it's the whole point.</p>
+                <span class="card-back__close">Tap to flip back</span>
+              </div>
+            </div>
           </div>
-          <div class="card-number">03</div>
-          <h3 class="card-title">First to Know</h3>
-          <p class="card-body">Priority access to events, tastings, and special releases — always before the public. You're the inner circle, and you get treated like it.</p>
-          <div class="card-tag">Exclusive Early Access</div>
         </div>
 
-        <div class="benefit-card">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <circle cx="20" cy="20" r="15" stroke="#C4962A" stroke-width="1.5" fill="none"/>
-              <path d="M14 26l12-12" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="15" cy="15" r="3" stroke="#C4962A" stroke-width="1.5" fill="none"/>
-              <circle cx="25" cy="25" r="3" stroke="#C4962A" stroke-width="1.5" fill="none"/>
-            </svg>
+        <div class="benefit-flip">
+          <div class="benefit-flip__inner">
+            <div class="benefit-flip__front">
+              <div class="benefit-card">
+                <div class="card-icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="15" stroke="#C4962A" stroke-width="1.5" fill="none"/>
+                    <path d="M14 26l12-12" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="15" cy="15" r="3" stroke="#C4962A" stroke-width="1.5" fill="none"/>
+                    <circle cx="25" cy="25" r="3" stroke="#C4962A" stroke-width="1.5" fill="none"/>
+                  </svg>
+                </div>
+                <div class="card-number">04</div>
+                <h3 class="card-title">Bottle Discounts</h3>
+                <p class="card-body">Stock your cellar and save. Members enjoy 15% off any 6-bottle purchase — or go deeper with 20% off a full case of 12.</p>
+                <div class="card-tag">15% × 6 &nbsp;|&nbsp; 20% × 12</div>
+                <span class="card-flip-hint">Tap to learn more</span>
+              </div>
+            </div>
+            <div class="benefit-flip__back">
+              <div class="benefit-card-back">
+                <div class="card-back__number">04</div>
+                <h3 class="card-back__title">Bottle Discounts</h3>
+                <p class="card-back__body">Mix and match any 6 bottles from our 400+ label retail floor and pay 15% less. Go for a full case of 12 and save 20%. Stack that on top of your member retail pricing and the savings add up fast. Your $29 membership pays for itself on your first purchase home.</p>
+                <span class="card-back__close">Tap to flip back</span>
+              </div>
+            </div>
           </div>
-          <div class="card-number">04</div>
-          <h3 class="card-title">Bottle Discounts</h3>
-          <p class="card-body">Stock your cellar and save. Members enjoy 15% off any 6-bottle purchase — or go deeper with 20% off a full case of 12.</p>
-          <div class="card-tag">15% × 6 &nbsp;|&nbsp; 20% × 12</div>
         </div>
 
-        <div class="benefit-card">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path d="M10 10h20l-2 14H12L10 10z" stroke="#C4962A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-              <path d="M8 10H6" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
-              <circle cx="14" cy="28" r="2" stroke="#C4962A" stroke-width="1.5" fill="none"/>
-              <circle cx="24" cy="28" r="2" stroke="#C4962A" stroke-width="1.5" fill="none"/>
-              <path d="M16 18h8M15 22h10" stroke="#C4962A" stroke-width="1" stroke-linecap="round"/>
-            </svg>
+        <div class="benefit-flip">
+          <div class="benefit-flip__inner">
+            <div class="benefit-flip__front">
+              <div class="benefit-card">
+                <div class="card-icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M10 10h20l-2 14H12L10 10z" stroke="#C4962A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+                    <path d="M8 10H6" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="14" cy="28" r="2" stroke="#C4962A" stroke-width="1.5" fill="none"/>
+                    <circle cx="24" cy="28" r="2" stroke="#C4962A" stroke-width="1.5" fill="none"/>
+                    <path d="M16 18h8M15 22h10" stroke="#C4962A" stroke-width="1" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="card-number">05</div>
+                <h3 class="card-title">Member Retail Pricing</h3>
+                <p class="card-body">Special club pricing across our 400+ label retail selection. Your membership more than pays for itself every time you take a bottle home.</p>
+                <div class="card-tag">400+ Retail Labels</div>
+                <span class="card-flip-hint">Tap to learn more</span>
+              </div>
+            </div>
+            <div class="benefit-flip__back">
+              <div class="benefit-card-back">
+                <div class="card-back__number">05</div>
+                <h3 class="card-back__title">Member Retail Pricing</h3>
+                <p class="card-back__body">Our retail floor spans 400+ labels from around the world — every style, region, and price point. As a member, you pay club pricing across the entire floor, every time. Every bottle you take home costs less than the public shelf price. It adds up faster than you'd think.</p>
+                <span class="card-back__close">Tap to flip back</span>
+              </div>
+            </div>
           </div>
-          <div class="card-number">05</div>
-          <h3 class="card-title">Member Retail Pricing</h3>
-          <p class="card-body">Special club pricing across our 400+ label retail selection. Your membership more than pays for itself every time you take a bottle home.</p>
-          <div class="card-tag">400+ Retail Labels</div>
         </div>
 
-        <div class="benefit-card">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <polygon points="20,4 24,14 35,14 26,21 29,32 20,25 11,32 14,21 5,14 16,14" stroke="#C4962A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-            </svg>
+        <div class="benefit-flip">
+          <div class="benefit-flip__inner">
+            <div class="benefit-flip__front">
+              <div class="benefit-card">
+                <div class="card-icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <polygon points="20,4 24,14 35,14 26,21 29,32 20,25 11,32 14,21 5,14 16,14" stroke="#C4962A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+                  </svg>
+                </div>
+                <div class="card-number">06</div>
+                <h3 class="card-title">Dining Points</h3>
+                <p class="card-body">Every meal earns rewards. Rack up loyalty points each time you dine with us — the more you enjoy, the more you earn back.</p>
+                <div class="card-tag">Earn on Every Visit</div>
+                <span class="card-flip-hint">Tap to learn more</span>
+              </div>
+            </div>
+            <div class="benefit-flip__back">
+              <div class="benefit-card-back">
+                <div class="card-back__number">06</div>
+                <h3 class="card-back__title">Dining Points</h3>
+                <p class="card-back__body">Every time you sit down for a meal at The Wine Room Kitchen &amp; Bar, you're earning. Points accumulate automatically with each visit and can be redeemed for discounts on your next meal, bottles to take home, or access to exclusive member experiences. Come for dinner — earn toward your next bottle.</p>
+                <span class="card-back__close">Tap to flip back</span>
+              </div>
+            </div>
           </div>
-          <div class="card-number">06</div>
-          <h3 class="card-title">Dining Points</h3>
-          <p class="card-body">Every meal earns rewards. Rack up loyalty points each time you dine with us — the more you enjoy, the more you earn back.</p>
-          <div class="card-tag">Earn on Every Visit</div>
         </div>
 
-        <div class="benefit-card benefit-card--rare benefit-card--last">
-          <div class="card-icon">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
-              <path d="M20 6l3 9h9l-7.5 5.5 3 9-7.5-5.5-7.5 5.5 3-9L7 15h9z" stroke="#C4962A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
-              <circle cx="20" cy="20" r="14" stroke="#C4962A" stroke-width="0.75" stroke-dasharray="3 3" fill="none"/>
-            </svg>
+        <div class="benefit-flip benefit-flip--last">
+          <div class="benefit-flip__inner">
+            <div class="benefit-flip__front">
+              <div class="benefit-card benefit-card--rare">
+                <div class="card-icon">
+                  <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                    <path d="M20 6l3 9h9l-7.5 5.5 3 9-7.5-5.5-7.5 5.5 3-9L7 15h9z" stroke="#C4962A" stroke-width="1.5" stroke-linejoin="round" fill="none"/>
+                    <circle cx="20" cy="20" r="14" stroke="#C4962A" stroke-width="0.75" stroke-dasharray="3 3" fill="none"/>
+                  </svg>
+                </div>
+                <div class="card-number">07</div>
+                <h3 class="card-title">Rare Room Access</h3>
+                <p class="card-body">Exclusive discounts inside The Rare Room — our glass-enclosed vault of over 2,400 rare and hard-to-find bottles from around the world.</p>
+                <div class="card-tag">2,400+ Rare Bottles</div>
+                <span class="card-flip-hint">Tap to learn more</span>
+              </div>
+            </div>
+            <div class="benefit-flip__back">
+              <div class="benefit-card-back benefit-card-back--rare">
+                <div class="card-back__number">07</div>
+                <h3 class="card-back__title">Rare Room Access</h3>
+                <p class="card-back__body">The Rare Room is our private glass-enclosed vault at the back of the restaurant — over 2,400 rare, allocated, and hard-to-find bottles from around the world. Single-vineyard Burgundies, aged Barolos, cult California Cabernets. As a member you receive exclusive discounts on every purchase, giving you access to wines most collectors spend years hunting.</p>
+                <span class="card-back__close">Tap to flip back</span>
+              </div>
+            </div>
           </div>
-          <div class="card-number">07</div>
-          <h3 class="card-title">Rare Room Access</h3>
-          <p class="card-body">Exclusive discounts inside The Rare Room — our glass-enclosed vault of over 2,400 rare and hard-to-find bottles from around the world.</p>
-          <div class="card-tag">2,400+ Rare Bottles</div>
         </div>
+
       </div>
     </div>
   </section>
@@ -570,45 +667,55 @@
     </div>
   </section>
 
-  <!-- =================== PRICING =================== -->
-  <section id="pricing">
-    <div class="section-inner pricing-inner">
-      <div class="section-header" data-animate>
-        <p class="eyebrow eyebrow--dark">Membership</p>
-        <h2 class="section-title">Simple. Honest.<br><em>Worth It.</em></h2>
+  <!-- =================== JOIN FORM =================== -->
+  <section id="join">
+    <div class="join-bg-orb join-bg-orb--1" aria-hidden="true"></div>
+    <div class="join-bg-orb join-bg-orb--2" aria-hidden="true"></div>
+    <div class="section-inner join-inner">
+      <div class="join-header" data-animate>
+        <p class="eyebrow">Reserve Your Spot</p>
+        <h2 class="join-title">Your First Bottle<br><em>Is Waiting.</em></h2>
+        <p class="join-sub">Join a community of wine lovers in Delray Beach. We'll be in touch about your membership details.</p>
       </div>
-      <div class="pricing-card" data-animate>
-        <div class="pricing-card__accent"></div>
-        <div class="pricing-card__shimmer"></div>
-        <div class="pricing-card__header">
-          <span class="pricing-badge">WINE CLUB MEMBERSHIP</span>
+      <div class="join-form-wrap" data-animate>
+        <form id="signup-form" novalidate>
+          <!-- Backend hook: add action="YOUR_FORMSPREE_OR_NETLIFY_URL" method="POST" -->
+          <div class="field-group">
+            <label for="fname">Full Name</label>
+            <div class="input-wrap">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="5" r="3" stroke="#7B1C3C" stroke-width="1.2" fill="none"/><path d="M2 14c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="#7B1C3C" stroke-width="1.2" stroke-linecap="round" fill="none"/></svg>
+              <input type="text" id="fname" name="name" placeholder="Your name" required autocomplete="name">
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="femail">Email Address</label>
+            <div class="input-wrap">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="#7B1C3C" stroke-width="1.2" fill="none"/><path d="M1 5l7 5 7-5" stroke="#7B1C3C" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <input type="email" id="femail" name="email" placeholder="you@email.com" required autocomplete="email">
+            </div>
+          </div>
+          <div class="field-group">
+            <label for="fphone">Phone Number <span class="field-optional">(optional)</span></label>
+            <div class="input-wrap">
+              <svg class="input-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 4-2 1.2c1 2 2.8 3.8 4.8 4.8L11.5 10 15 11.5v3C15 14.8 14.8 15 10.5 13S2 7.3 2 3V2h1z" stroke="#7B1C3C" stroke-width="1.2" stroke-linejoin="round" fill="none"/></svg>
+              <input type="tel" id="fphone" name="phone" placeholder="(561) 000-0000" autocomplete="tel">
+            </div>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full btn--submit" id="submitBtn">
+            <span class="btn-text">Join the Wine Club</span>
+            <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="btn-spinner" hidden><svg width="18" height="18" viewBox="0 0 18 18" fill="none" class="spin"><circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,0.3)" stroke-width="2"/><path d="M9 2a7 7 0 0 1 7 7" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></span>
+          </button>
+          <p class="form-disclaimer">By submitting, you agree to be contacted about your Wine Club membership. We never share your information.</p>
+        </form>
+        <div id="form-success" class="form-success" hidden>
+          <div class="success-icon">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="22" stroke="#C4962A" stroke-width="1.5" fill="none"/><path d="M14 24l7 7 13-14" stroke="#7B1C3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Welcome to the Club.</h3>
+          <p>We'll be in touch shortly about your membership.<br>See you at the next pickup party.</p>
+          <div class="success-ornament">✦</div>
         </div>
-        <div class="pricing-card__price">
-          <sup class="price-dollar">$</sup>
-          <span class="price-amount">29</span>
-          <sub class="price-period">/ month</sub>
-        </div>
-        <div class="pricing-divider">
-          <span class="pricing-divider__line"></span>
-          <span class="pricing-divider__glyph">✦</span>
-          <span class="pricing-divider__line"></span>
-        </div>
-        <ul class="pricing-list">
-          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>1 bottle per month</strong> + monthly pickup party</span></li>
-          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Wine card match</strong> — we match any amount dollar-for-dollar · 180+ wines, 7 days/week</span></li>
-          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>First notifications</strong> of events &amp; tastings</span></li>
-          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>15% off 6 bottles</strong>, <strong>20% off 12 bottles</strong></span></li>
-          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Member pricing</strong> across all retail selections</span></li>
-          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Points earned</strong> on every dining visit</span></li>
-          <li><svg class="check-icon" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="#C4962A" stroke-width="1.2" fill="none"/><path d="M5.5 9l2.5 2.5 4.5-5" stroke="#C4962A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Rare Room discounts</strong> — 2,400+ exclusive bottles</span></li>
-        </ul>
-        <a href="#join" class="btn btn--primary btn--full">
-          <span>Join the Club</span>
-          <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <p class="pricing-fine">No commitment. Cancel anytime.</p>
       </div>
     </div>
   </section>
