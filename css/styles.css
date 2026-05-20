@@ -726,16 +726,17 @@ ul { list-style: none; }
   letter-spacing: -0.03em;
 }
 
-/* Wine glass SVG — decorative, smaller now that badge is hero */
+/* Wine glass SVG — proper goblet, decorative below badge */
 .hero-glass-svg {
-  width: clamp(60px, 10vw, 110px);
+  width: clamp(90px, 14vw, 150px);
   height: auto;
   position: absolute;
-  bottom: var(--sp-8);
-  left: var(--sp-8);
+  bottom: var(--sp-10);
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1;
-  opacity: 0.45;
-  filter: drop-shadow(0 0 20px rgba(196,150,42,0.2));
+  opacity: 0.7;
+  filter: drop-shadow(0 0 24px rgba(196,150,42,0.25));
 }
 
 /* Bubble rise animation */
@@ -765,7 +766,7 @@ ul { list-style: none; }
 }
 .badge-spin-wrap:hover { animation-play-state: paused; }
 .badge-hero {
-  width: clamp(220px, 30vw, 340px);
+  width: clamp(160px, 20vw, 220px);
   display: block;
   filter: invert(1) drop-shadow(0 4px 32px rgba(0,0,0,0.45));
   cursor: pointer;
