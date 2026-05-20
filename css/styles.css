@@ -347,7 +347,6 @@ ul { list-style: none; }
 .nav-logo__img {
   height: 36px;
   width: auto;
-  mix-blend-mode: multiply;
   transition: opacity var(--dur-fast) var(--ease-out);
 }
 .nav-logo__img:hover { opacity: 0.8; }
@@ -585,7 +584,6 @@ ul { list-style: none; }
 .hero-logo {
   max-width: 260px;
   width: 100%;
-  mix-blend-mode: multiply;
   transition: transform var(--dur-slow) var(--ease-out);
 }
 .hero-logo:hover { transform: scale(1.03); }
@@ -2256,7 +2254,6 @@ input.error {
 .footer-logo {
   max-width: 180px;
   filter: invert(1);
-  mix-blend-mode: screen;
   opacity: 0.9;
   margin-bottom: var(--sp-4);
   transition: opacity var(--dur-fast) var(--ease-out);
