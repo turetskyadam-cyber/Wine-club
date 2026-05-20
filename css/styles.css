@@ -719,24 +719,6 @@ ul { list-style: none; }
   pointer-events: none;
   z-index: 0;
 }
-.hero-right::after {
-  content: '';
-  position: absolute;
-  inset: -60%;
-  background: conic-gradient(
-    from 0deg at 50% 50%,
-    transparent 0deg,
-    rgba(196,150,42,0.07) 50deg,
-    transparent 100deg
-  );
-  animation: bgSweep 20s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-@keyframes bgSweep {
-  to { transform: rotate(360deg); }
-}
-
 /* Ghost "180+" text */
 .hero-right__ghost {
   position: absolute;
