@@ -726,30 +726,43 @@ ul { list-style: none; }
   letter-spacing: -0.03em;
 }
 
-/* Wine glass SVG — proper goblet, decorative below badge */
-.hero-glass-svg {
-  width: clamp(90px, 14vw, 150px);
-  height: auto;
+/* Grape cluster — wine-club background watermark */
+.hero-grape-svg {
   position: absolute;
-  bottom: var(--sp-10);
+  width: clamp(240px, 46vw, 420px);
+  height: auto;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 1;
-  opacity: 0.7;
-  filter: drop-shadow(0 0 24px rgba(196,150,42,0.25));
+  z-index: 0;
+  opacity: 0.25;
+  pointer-events: none;
+  filter: drop-shadow(0 0 40px rgba(196,150,42,0.18));
 }
 
-/* Bubble rise animation */
-.bubble { animation: bubbleRise 4s ease-in-out infinite; }
-.bubble--1 { animation-duration: 4.2s; animation-delay: 0s; }
-.bubble--2 { animation-duration: 3.6s; animation-delay: 0.8s; }
-.bubble--3 { animation-duration: 5.0s; animation-delay: 1.6s; }
-.bubble--4 { animation-duration: 3.8s; animation-delay: 0.4s; }
-.bubble--5 { animation-duration: 4.6s; animation-delay: 2.0s; }
-.bubble--6 { animation-duration: 3.4s; animation-delay: 1.2s; }
-@keyframes bubbleRise {
-  0%, 100% { transform: translateY(0) scale(1); opacity: 1; }
-  50%       { transform: translateY(-14px) scale(1.15); opacity: 0.6; }
+/* Floating gold particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+.particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--sz);
+  height: var(--sz);
+  border-radius: 50%;
+  background: rgba(196,150,42,0.7);
+  animation: particleFloat var(--dur, 8s) var(--dly, 0s) ease-in-out infinite;
+}
+@keyframes particleFloat {
+  0%   { transform: translateY(0) scale(1);      opacity: 0; }
+  15%  { opacity: 0.9; }
+  85%  { opacity: 0.5; }
+  100% { transform: translateY(-70px) scale(0.3); opacity: 0; }
 }
 
 /* Badge — centrepiece of hero-right */
