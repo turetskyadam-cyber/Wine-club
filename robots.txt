@@ -1,0 +1,15 @@
+User-agent: *
+Allow: /
+
+# Block member portal and account pages
+Disallow: /member/
+Disallow: /account/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /search/
+
+# Block legal boilerplate pages from crawl budget
+Disallow: /privacy/
+Disallow: /terms/
+
+Sitemap: https://www.wineroomdelray.com/sitemap.xml

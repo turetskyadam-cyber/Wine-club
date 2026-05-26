@@ -263,6 +263,11 @@
 
       btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
       if (answer) answer.setAttribute('aria-hidden', isOpen ? 'true' : 'false');
+
+      // GA4: track FAQ engagement
+      if (typeof gtag === 'function' && !isOpen) {
+        gtag('event', 'faq_expanded', { faq_question: btn.querySelector('span')?.textContent || '' });
+      }
     });
   });
 
@@ -314,6 +319,16 @@
         ------------------------------------------------- */
 
         await new Promise((r) => setTimeout(r, 900));
+
+        // GA4 lead conversion event
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            currency: 'USD',
+            value: 29.00,
+            items: [{ item_id: 'wine-club-membership', item_name: 'Wine Club Membership', price: 29.00 }]
+          });
+          gtag('event', 'form_submit', { form_name: 'wine_club_signup' });
+        }
 
         form.style.opacity   = '0';
         form.style.transform = 'scale(0.97)';
@@ -482,5 +497,19 @@
      ---------------------------------------------------------- */
   const yearEl = document.getElementById('footer-year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  /* ----------------------------------------------------------
+     18. GA4 — CTA click tracking
+     ---------------------------------------------------------- */
+  document.querySelectorAll('a[href="#join"], .nav-cta, .mobile-cta-btn').forEach((el) => {
+    el.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'select_content', {
+          content_type: 'cta',
+          content_id: el.closest('[id]')?.id || 'unknown'
+        });
+      }
+    });
+  });
 
 })();
