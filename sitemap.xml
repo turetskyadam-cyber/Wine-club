@@ -11,7 +11,6 @@
     <image:image>
       <image:loc>https://www.wineroomdelray.com/assets/og-wine-room.jpg</image:loc>
       <image:title>The Wine Room Wine Club — Delray Beach, FL</image:title>
-      <image:caption>World's largest wine-on-tap experience. 180+ wines, $29/month wine club membership.</image:caption>
     </image:image>
   </url>
 
@@ -19,7 +18,7 @@
   <url>
     <loc>https://www.wineroomdelray.com/wine-club/</loc>
     <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
@@ -57,16 +56,10 @@
 
   <!-- About -->
   <url>
-    <loc>https://www.wineroomdelray.com/about/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
     <loc>https://www.wineroomdelray.com/about/sommelier/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.75</priority>
   </url>
 
   <!-- Location -->
@@ -77,109 +70,51 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- Experiences -->
-  <url>
-    <loc>https://www.wineroomdelray.com/speakeasy/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/restaurant/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/events/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/events/monthly-pickup-party/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/events/wine-dinners/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-
-  <!-- Wine catalog -->
-  <url>
-    <loc>https://www.wineroomdelray.com/wines/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/wines/red/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/wines/white/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/wines/sparkling/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/wines/rose/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
-
-  <!-- Wine regions -->
+  <!-- Wine Regions hub + individual regions -->
   <url>
     <loc>https://www.wineroomdelray.com/wine-regions/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/wine-regions/napa-valley/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/wine-regions/burgundy/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/wine-regions/tuscany/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/wine-regions/bordeaux/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/wine-regions/champagne/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.wineroomdelray.com/wine-regions/rioja/</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 
-  <!-- Pairing guides -->
+  <!-- Pairing Guides hub + individual guides -->
   <url>
     <loc>https://www.wineroomdelray.com/pairing-guides/</loc>
     <lastmod>2026-05-26</lastmod>
@@ -190,13 +125,13 @@
     <loc>https://www.wineroomdelray.com/pairing-guides/steak/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/pairing-guides/seafood/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/pairing-guides/cheese/</loc>
@@ -204,20 +139,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/pairing-guides/pasta/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/pairing-guides/dessert/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
 
-  <!-- Wine education -->
+  <!-- Wine Education hub + individual guides -->
   <url>
     <loc>https://www.wineroomdelray.com/wine-education/</loc>
     <lastmod>2026-05-26</lastmod>
@@ -228,7 +151,7 @@
     <loc>https://www.wineroomdelray.com/wine-education/how-to-taste-wine/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.75</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/wine-education/wine-for-beginners/</loc>
@@ -236,26 +159,8 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/wine-education/enomatic-wine-machines/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/wine-education/what-is-an-allocated-wine/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/wine-education/old-world-vs-new-world/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
 
-  <!-- Blog / Journal -->
+  <!-- Blog hub + posts -->
   <url>
     <loc>https://www.wineroomdelray.com/blog/</loc>
     <lastmod>2026-05-26</lastmod>
@@ -266,13 +171,13 @@
     <loc>https://www.wineroomdelray.com/blog/what-is-a-wine-club/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/blog/is-a-wine-club-worth-it/</loc>
     <lastmod>2026-05-26</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://www.wineroomdelray.com/blog/best-wine-clubs-florida/</loc>
@@ -280,61 +185,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.80</priority>
   </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/blog/wine-club-gift-guide/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/blog/things-to-do-delray-beach-wine/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/blog/best-wine-bar-delray-beach/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/blog/wine-club-vs-wine-subscription/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/blog/delray-beach-date-night-wine/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-  </url>
 
-  <!-- Seasonal -->
+  <!-- Seasonal pages -->
   <url>
     <loc>https://www.wineroomdelray.com/seasonal/holiday-wine-gifts/</loc>
     <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.75</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/seasonal/valentines-wine-gifts/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>yearly</changefreq>
     <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/seasonal/fathers-day-wine-gifts/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.70</priority>
-  </url>
-  <url>
-    <loc>https://www.wineroomdelray.com/seasonal/summer-wines/</loc>
-    <lastmod>2026-05-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
   </url>
 
 </urlset>
