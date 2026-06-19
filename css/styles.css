@@ -509,6 +509,11 @@ ul { list-style: none; }
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .nav-cta   { display: none; }
+  .nav-cta.nav-login-btn {
+    display: inline-flex;
+    font-size: 0.75rem;
+    padding: 0.4rem 0.85rem;
+  }
   .nav-hamburger { display: flex; }
 }
 
